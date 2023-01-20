@@ -1,23 +1,21 @@
 package com.alishev.springcourse;
 
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
 public class ClassicalMusic implements Music {
-    private ClassicalMusic() {
-    }
-
-    private static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
-
-    public void initMethod() {
-        System.out.println("Start init method");
-    }
-
-    public void destroyMethod() {
-        System.out.println("Start destroy method");
+    private List<String> songs = new ArrayList<>();
+    {
+        songs.add("Hungarian Rhapsody");
+        songs.add("Symphony no. 5 in C Minor, op. 67");
+        songs.add("Night on Bald Mountain");
     }
 
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public List<String> getSongs() {
+        return songs;
     }
 }

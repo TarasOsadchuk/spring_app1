@@ -8,52 +8,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
+    <context:component-scan base-package="com.alishev.springcourse"/>
+
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-    <!-- За допомогою колекції -->
-    <!--    <bean id="musicClassicalBean"-->
-    <!--          class="com.alishev.springcourse.ClassicalMusic">-->
-    <!--    </bean>-->
-    <!--    <bean id="musicRockBean"-->
-    <!--          class="com.alishev.springcourse.RockMusic">-->
-    <!--    </bean>-->
-    <!--    <bean id="musicAlternativeRockBean"-->
-    <!--          class="com.alishev.springcourse.AlternativeRockMusic">-->
-    <!--    </bean>-->
-
-    <bean id="musicBean"
-          class="com.alishev.springcourse.ClassicalMusic"
-          init-method="initMethod"
-          destroy-method="destroyMethod"
-          factory-method="getClassicalMusic">
-    </bean>
-
-    <bean id="musicPlayer"
-          class="com.alishev.springcourse.MusicPlayer"
-          scope="prototype">
-        <property name="music" ref="musicBean"/>
-
-        <!-- За допомогою коструктора -->
-        <!--        <constructor-arg ref="musicBean"/>-->
-
-        <!--        <property name="music" ref="musicBean"/>-->
-
-        <!-- За допомогою конструкторів -->
-        <!--        <property name="name" value="Some name"/>-->
-        <!--        <property name="volume" value="50"/>-->
-
-        <!-- За допомогою колекції -->
-        <!--        <property name="musicList">-->
-        <!--            <list>-->
-        <!--                <ref bean="musicClassicalBean"></ref>-->
-        <!--                <ref bean="musicRockBean"></ref>-->
-        <!--                <ref bean="musicAlternativeRockBean"></ref>-->
-        <!--            </list>-->
-        <!--        </property>-->
-
-        <!-- За допомогою файла -->
-        <!--        <property name="name" value="${musicPlayer.name}"/>-->
-        <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
-    </bean>
 
 </beans>
